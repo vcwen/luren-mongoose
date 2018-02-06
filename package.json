@@ -1,0 +1,53 @@
+{
+  "name": "decorator-mongoose",
+  "version": "0.0.1",
+  "description": "Decorators for Mongoose",
+  "main": "index.js",
+  "jest": {
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/test/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "test/.*\\.(test|spec)\\.(tsx?)$",
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "repository": "https://github.com/wenwei1202/decorator-mongoose.git",
+  "author": "vincent.wen <wenwei1202@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/jest": "^22.1.1",
+    "immutable": "^4.0.0-rc.9",
+    "reflect-metadata": "^0.1.12"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.0.0",
+    "jest": "^22.1.4",
+    "ts-jest": "^22.0.3",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.7.1"
+  }
+}

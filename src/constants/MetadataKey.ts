@@ -1,0 +1,12 @@
+export enum MetadataKey {
+  COLLECTION = 'COLLECTION',
+  EMBEDDED = 'EMBEDDED',
+  INDEXES = 'INDEXES',
+  VALIDATES = 'VALIDATES',
+  FIELDS = 'FIELDS',
+  PROPS = 'PROPS',
+  MIDDLEWARES = 'MIDDLEWARES',
+  PLUGINS = 'PLUGINS'
+}
+
+export default MetadataKey

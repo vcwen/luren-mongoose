@@ -1,0 +1,32 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "indent": [true, "spaces", 2],
+    "trailing-comma": [true, {
+      "multiline": "never",
+      "singleline": "never"
+    }],
+
+    "object-literal-shorthand": true,
+    "no-trailing-whitespace": true,
+    "no-magic-numbers": [true, -1, 0 , 1, 2, 3, 100, 200, 301, 302, 400, 401, 404, 500, 1000],
+    "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
+    "no-unsafe-finally": true,
+    "object-literal-sort-keys": false
+  },
+  "rulesDirectory": []
+}
