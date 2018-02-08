@@ -2,11 +2,13 @@ import { List } from 'immutable'
 import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
 
-export function Middleware(middleware: {
+export interface IMiddleware {
   phase: 'pre' | 'post'
   method: string
-  fn: ((next: any) => void) | (() => Promise<void>)
-}) {
+  fn: ((next: any, done?: any) => void) | (() => Promise<void>)
+  parallel?: boolean
+}
+export function Middleware(middleware: IMiddleware) {
   return (constructor: new () => any) => {
     let hooks: List<any> = Reflect.getMetadata(MetadataKey.MIDDLEWARES, constructor) || List()
     hooks = hooks.push(middleware)
@@ -14,13 +16,7 @@ export function Middleware(middleware: {
   }
 }
 
-export function Middlewares(
-  middlewares: Array<{
-    phase: 'pre' | 'post'
-    method: string
-    fn: ((next: any) => void) | (() => Promise<void>)
-  }>
-) {
+export function Middlewares(middlewares: IMiddleware[]) {
   return (constructor: new () => any) => {
     let hooks: List<any> = Reflect.getMetadata(MetadataKey.MIDDLEWARES, constructor) || List()
     hooks = hooks.concat(middlewares)

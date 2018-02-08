@@ -3,6 +3,8 @@ import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
 import { Constructor } from '../types/Constructor'
 
+export function Collection(options: SchemaOptions): (Constructor) => void
+export function Collection(constructor: Constructor): void
 export function Collection(options: SchemaOptions | Constructor) {
   if (typeof options === 'object') {
     const opts = options as SchemaOptions

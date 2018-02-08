@@ -1,11 +1,11 @@
 import { Map } from 'immutable'
 import { MetadataKey } from '../constants/MetadataKey'
-import { IValidateOptions } from '../types/Validate'
+import { IValidatorOptions } from '../types/Validator'
 
-export function Validate(options: IValidateOptions) {
+export function Validator(options: IValidatorOptions) {
   return (target: object, propertyKey: string) => {
-    let validators: Map<string, any> = Reflect.getMetadata(MetadataKey.VALIDATES, target) || Map()
+    let validators: Map<string, any> = Reflect.getMetadata(MetadataKey.VALIDATORS, target) || Map()
     validators = validators.set(propertyKey, options)
-    Reflect.defineMetadata(MetadataKey.VALIDATES, validators, target)
+    Reflect.defineMetadata(MetadataKey.VALIDATORS, validators, target.constructor)
   }
 }

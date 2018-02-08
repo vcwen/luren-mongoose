@@ -3,6 +3,8 @@ import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
 import { Constructor } from '../types/Constructor'
 
+export function Embedded(options: SchemaOptions): (Construtor) => void
+export function Embedded(constructor: Constructor): void
 export function Embedded(options: SchemaOptions | Constructor) {
   if (typeof options === 'object') {
     const opts = Object.assign({ _id: false, id: false }, options) as SchemaOptions

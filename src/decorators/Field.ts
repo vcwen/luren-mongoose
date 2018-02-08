@@ -3,8 +3,8 @@ import { SchemaTypeOpts } from 'mongoose'
 import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
 
-export function Field(target: object, propertyKey: string)
-export function Field(options: SchemaTypeOpts<any>)
+export function Field(target: object, propertyKey: string): void
+export function Field(options: SchemaTypeOpts<any>): (target: object, propertyKey: string) => void
 export function Field(value: any) {
   if (arguments.length === 1) {
     const options = value as SchemaTypeOpts<any>

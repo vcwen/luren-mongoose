@@ -6,7 +6,7 @@ interface IOptions {
   [key: string]: -1 | 1
 }
 
-export function CompoundIndexes(options: IOptions) {
+export function CompoundIndex(options: IOptions) {
   if (Object.keys(options).length < 2) {
     throw new Error('There should be at least 2 fields for compound indexes.')
   }
