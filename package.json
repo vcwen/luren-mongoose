@@ -41,9 +41,11 @@
   "dependencies": {
     "@types/jest": "^22.1.1",
     "immutable": "^4.0.0-rc.9",
+    "lodash": "^4.17.5",
     "reflect-metadata": "^0.1.12"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.102",
     "@types/mongoose": "^5.0.0",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.3",

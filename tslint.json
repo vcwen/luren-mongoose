@@ -1,7 +1,8 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint:recommended"
+    "tslint:recommended",
+    "tslint-config-prettier"
   ],
   "jsRules": {},
   "rules": {
@@ -10,11 +11,7 @@
       "never"
     ],
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
-    "quotemark": [
-      true,
-      "single",
-      "avoid-escape"
-    ],
+
     "indent": [true, "spaces", 2],
     "trailing-comma": [true, {
       "multiline": "never",

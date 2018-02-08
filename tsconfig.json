@@ -52,7 +52,6 @@
   },
   "exclude": [
     "node_modules",
-    "test",
     "dist",
     "__mocks__"
   ]
