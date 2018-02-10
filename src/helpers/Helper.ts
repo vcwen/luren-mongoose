@@ -1,6 +1,6 @@
 import { List, Map } from 'immutable'
 import * as _ from 'lodash'
-import { Document, model, Schema, SchemaDefinition, SchemaOptions } from 'mongoose'
+import { Document, model, Model, Schema, SchemaDefinition, SchemaOptions } from 'mongoose'
 import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
 import { IMiddleware } from '../decorators/Middleware'
@@ -48,7 +48,7 @@ export class Helper {
     })
     return schema
   }
-  public static createModelFrom<T>(constructor: new () => T) {
+  public static createModelFrom<T>(constructor: new () => T): Model<T & Document> {
     const schema = Helper.createSchemaFrom(constructor)
     return model<T & Document>(constructor.name, schema)
   }

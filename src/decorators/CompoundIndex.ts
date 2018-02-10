@@ -2,11 +2,11 @@ import { List } from 'immutable'
 import { MetadataKey } from '../constants/MetadataKey'
 import { IIndexOptions } from '../types/Index'
 
-interface IOptions {
+export interface ICompoundIndexOptions {
   [key: string]: -1 | 1
 }
 
-export function CompoundIndex(options: IOptions) {
+export function CompoundIndex(options: ICompoundIndexOptions) {
   if (Object.keys(options).length < 2) {
     throw new Error('There should be at least 2 fields for compound indexes.')
   }

@@ -3,7 +3,7 @@ import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
 import { IIndexOptions } from '../types/Index'
 
-export interface IOptions {
+export interface IIndexOptions {
   name?: string
   order?: 1 | -1
   type?: string
@@ -14,7 +14,7 @@ export interface IOptions {
   [key: string]: any
 }
 
-export function Index(options: IOptions)
+export function Index(options: IIndexOptions)
 export function Index(target: object, propertyKey: string)
 export function Index(value: any) {
   if (arguments.length === 1) {
