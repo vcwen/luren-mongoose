@@ -36,9 +36,9 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@types/mongoose@^5.0.0":
-  version "5.0.0"
-  resolved "http://registry.npm.taobao.org/@types/mongoose/download/@types/mongoose-5.0.0.tgz#b6f150a37541556f51fdfefdfe4e0da8fd3b95d7"
+"@types/mongoose@^5.0.1":
+  version "5.0.1"
+  resolved "http://registry.npm.taobao.org/@types/mongoose/download/@types/mongoose-5.0.1.tgz#cfd2b4b6bd53341e105960f3d453e8cb2fd003ad"
   dependencies:
     "@types/events" "*"
     "@types/mongodb" "*"
