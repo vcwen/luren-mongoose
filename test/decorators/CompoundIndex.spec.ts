@@ -4,11 +4,27 @@ import { MetadataKey } from '../../src/constants/MetadataKey'
 import { CompoundIndex } from '../../src/decorators/CompoundIndex'
 
 describe('CompoundIndex', () => {
-  it('should return decorator function when schema options is set', () => {
+  it('should return decorator function when index fields is set', () => {
     @CompoundIndex({ name: 1, age: -1 })
     class Test {}
     const indexes = Reflect.getMetadata(MetadataKey.INDEXES, Test) as List<any>
     expect(indexes.toArray()).toContainEqual({ fields: { name: 1, age: -1 } })
+  })
+
+  it('should return decorator function when index type is set', () => {
+    // tslint:disable-next-line:max-classes-per-file
+    @CompoundIndex({ name: 'text', age: -1 })
+    class Test {}
+    const indexes = Reflect.getMetadata(MetadataKey.INDEXES, Test) as List<any>
+    expect(indexes.toArray()).toContainEqual({ fields: { name: 'text', age: -1 } })
+  })
+
+  it('should return decorator function when index options is set', () => {
+    // tslint:disable-next-line:max-classes-per-file
+    @CompoundIndex({ name: 'text', age: -1 }, { unique: true })
+    class Test {}
+    const indexes = Reflect.getMetadata(MetadataKey.INDEXES, Test) as List<any>
+    expect(indexes.toArray()).toContainEqual({ fields: { name: 'text', age: -1 }, options: { unique: true } })
   })
 
   it('should throw an error when only object property is set.', () => {

@@ -26,10 +26,7 @@ export class Helper {
     schema.loadClass(constructor)
     const indexes = (Reflect.getMetadata(MetadataKey.INDEXES, constructor) || List()) as List<IIndexOptions>
     indexes.forEach((index) => {
-      const indexFields = index.fields
-      const indexOptions = Object.assign({}, index)
-      Reflect.deleteProperty(indexOptions, 'fields')
-      schema.index(indexFields, indexOptions)
+      schema.index(index.fields, index.options)
     })
     const plugins = (Reflect.getMetadata(MetadataKey.PLUGINS, constructor) || List()) as List<any>
     plugins.forEach((plugin) => {

@@ -56,7 +56,7 @@ describe('Helper', () => {
         fields: { name: 1 },
         options: { unique: true }
       },
-      { fields: { name: 1, age: -1 }, options: {} }
+      { fields: { name: 1, age: -1 }, options: undefined }
     ])
     expect(schema.plugins).toEqual([plugin])
     expect(schema.schemaDef.age).toEqual({ type: Number })

@@ -10,7 +10,7 @@ describe('Index', () => {
       public username: string
     }
     const indexes = Reflect.getMetadata(MetadataKey.INDEXES, Test) as List<any>
-    expect(indexes.toArray()).toContainEqual({ fields: { username: 1 }, name: 'testIndex', unique: true })
+    expect(indexes.toArray()).toContainEqual({ fields: { username: 1 }, options: { name: 'testIndex', unique: true } })
   })
   it('should use default options when options are not set', () => {
     // tslint:disable-next-line:max-classes-per-file
