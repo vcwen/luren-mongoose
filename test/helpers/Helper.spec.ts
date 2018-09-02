@@ -1,9 +1,8 @@
 import 'reflect-metadata'
 import { Collection } from '../../src/decorators/Collection'
-import { CompoundIndex } from '../../src/decorators/CompoundIndex'
+import { CompoundIndex, Index } from '../../src/decorators/Indexes'
 import { Embedded } from '../../src/decorators/Embedded'
 import { Field } from '../../src/decorators/Field'
-import { Index } from '../../src/decorators/Index'
 import { Middleware } from '../../src/decorators/Middleware'
 import { Plugin } from '../../src/decorators/Plugin'
 import { Validator } from '../../src/decorators/Validator'
@@ -18,9 +17,10 @@ describe('Helper', () => {
     const plugin = (s) => {
       s.indexes()
     }
-    @Embedded
+    @Embedded()
     class Embed {
-      @Field public thing: string
+      @Field()
+      public thing: string
     }
     @Plugin(plugin)
     @Middleware({
@@ -32,7 +32,7 @@ describe('Helper', () => {
     @Collection({ collection: 'test' })
     class Test {
       @Index({ unique: true })
-      @Field
+      @Field()
       public name: string
       @Field({ type: Number })
       @Validator({ validate: () => true, msg: 'Age should be greater than 0' })
@@ -56,7 +56,7 @@ describe('Helper', () => {
         fields: { name: 1 },
         options: { unique: true }
       },
-      { fields: { name: 1, age: -1 }, options: undefined }
+      { fields: { name: 1, age: -1 } }
     ])
     expect(schema.plugins).toEqual([plugin])
     expect(schema.schemaDef.age).toEqual({ type: Number })

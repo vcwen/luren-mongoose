@@ -1,7 +1,7 @@
 import { List } from 'immutable'
 import 'reflect-metadata'
 import { MetadataKey } from '../../src/constants/MetadataKey'
-import { CompoundIndex } from '../../src/decorators/CompoundIndex'
+import { CompoundIndex } from '../../src/decorators/Indexes'
 
 describe('CompoundIndex', () => {
   it('should return decorator function when index fields is set', () => {

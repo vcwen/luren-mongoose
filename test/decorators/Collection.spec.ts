@@ -11,8 +11,9 @@ describe('Collection', () => {
 
   it('should invoke directly when param is constructor', () => {
     // tslint:disable-next-line:max-classes-per-file
+    @Collection()
     class Test {}
-    Collection(Test)
+
     const collection = Reflect.getMetadata(MetadataKey.COLLECTION, Test)
     expect(collection).toEqual({ collection: 'Test' })
   })

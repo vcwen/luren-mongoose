@@ -4,7 +4,8 @@ import { Document, model, Model, Schema, SchemaDefinition, SchemaOptions } from 
 import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
 import { IMiddleware } from '../decorators/Middleware'
-import { IIndexOptions } from '../types/Index'
+import { IIndexMetadata } from '../decorators/Indexes'
+
 export class Helper {
   public static createSchemaFrom<T>(constructor: new () => T) {
     const schemaDef: SchemaDefinition = {} as SchemaDefinition
@@ -24,7 +25,7 @@ export class Helper {
     const collectionMetadata = Reflect.getMetadata(MetadataKey.COLLECTION, constructor) as SchemaOptions
     const schema = new Schema(schemaDef, collectionMetadata)
     schema.loadClass(constructor)
-    const indexes = (Reflect.getMetadata(MetadataKey.INDEXES, constructor) || List()) as List<IIndexOptions>
+    const indexes: List<IIndexMetadata> = Reflect.getMetadata(MetadataKey.INDEXES, constructor) || List()
     indexes.forEach((index) => {
       schema.index(index.fields, index.options)
     })

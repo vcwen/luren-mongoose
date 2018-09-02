@@ -13,11 +13,11 @@ describe('Embedded', () => {
     const validate = (value: number) => {
       return value > 0
     }
-    @Embedded
+    @Embedded()
     class Embed {}
     @Embedded({ versionKey: false })
     class AnotherEmbed {}
-    @Collection
+    @Collection()
     class Test {
       @Validator({
         validate,
