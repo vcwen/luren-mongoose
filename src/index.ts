@@ -1,4 +1,4 @@
-export * from './helpers/Helper'
+export { createModel, createSchema } from './helpers/Helper'
 export * from './decorators/Collection'
 export * from './decorators/Embedded'
 export * from './decorators/Field'

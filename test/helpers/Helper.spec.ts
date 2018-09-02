@@ -6,7 +6,7 @@ import { Field } from '../../src/decorators/Field'
 import { Middleware } from '../../src/decorators/Middleware'
 import { Plugin } from '../../src/decorators/Plugin'
 import { Validator } from '../../src/decorators/Validator'
-import { Helper } from '../../src/helpers/Helper'
+import { createSchema } from '../../src/helpers/Helper'
 /* tslint:disable:max-classes-per-file */
 jest.mock('mongoose')
 describe('Helper', () => {
@@ -40,7 +40,7 @@ describe('Helper', () => {
       @Field({ type: Embed })
       public embed: Embed
     }
-    const schema: any = Helper.createSchemaFrom(Test)
+    const schema: any = createSchema(Test)
     expect(schema.collectionMetadata.collection).toBe('test')
     expect(schema.loadedClass).toBe(Test)
     expect(schema.hooks).toEqual([
