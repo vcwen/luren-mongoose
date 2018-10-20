@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable'
-import * as _ from 'lodash'
+import _ from 'lodash'
 import { Document, model, Model, Schema, SchemaDefinition, SchemaOptions } from 'mongoose'
 import 'reflect-metadata'
 import { MetadataKey } from '../constants/MetadataKey'
@@ -8,7 +8,7 @@ import { IIndexMetadata } from '../decorators/Indexes'
 
 export function createSchema<T>(constructor: new () => T) {
   const schemaDef: SchemaDefinition = {} as SchemaDefinition
-  const fields = Reflect.getMetadata(MetadataKey.FIELDS, constructor) || (Map() as Map<string, any>)
+  const fields: Map<string, any> = Reflect.getMetadata(MetadataKey.FIELDS, constructor) || Map()
   if (fields.isEmpty()) {
     throw new Error('Schema must contain at least one field.')
   }

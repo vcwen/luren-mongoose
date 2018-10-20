@@ -1,6 +1,6 @@
 {
   "name": "luren-mongoose",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Decorators for Mongoose",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,16 +44,15 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@types/mongoose": "^5.0.1",
     "immutable": "^4.0.0-rc.9",
     "lodash": "^4.17.5",
-    "mongoose": "^5.2.9",
-    "npm": "^6.0.0",
     "reflect-metadata": "^0.1.12"
   },
   "devDependencies": {
     "@types/jest": "^22.1.1",
     "@types/lodash": "^4.14.102",
+    "@types/mongoose": "*",
+    "mongoose": "^5.2.9",
     "coveralls": "^3.0.0",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.3",
